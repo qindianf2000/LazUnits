@@ -4,13 +4,13 @@
 
 These tips will help you successfully convert Indy10 Delphi to Lazarus projects
 
-- Most Delphi demos from the Internet include Indy VCL objects in the .dfm form.
-- My preference is not to use the Indy Lazarus package because it adds over a dozen tabs with VCL objects to the Lazarus IDE.
-- This explains how to remove the VCL objects after converting from Delphi to Lazarus.
+- Most Delphi demos from the Internet include Indy design-time objects in the .dfm form
+- My preference is not to use the Indy Lazarus package because it adds many design-time tabs to the Lazarus IDE
+- Also, if you have issues converting from Delphi to Lazarus projects, this may help.
+- This explains how to remove the design-time objects after converting from Delphi to Lazarus.
 
 ## Convert Delphi to Lazarus
 - Use the Lazarus "Convert Delphi Project" feature: http://wiki.freepascal.org/Delphi_Converter_in_Lazarus
-- My preference is to UN-Check Cross-Platform and Support Delphi, use other defaults
 
 ## Remove VCL Objects
 - Close Lazarus then open the .frm file with a text editor
@@ -50,11 +50,7 @@ These tips will help you successfully convert Indy10 Delphi to Lazarus projects
 		end;
 	
 ## Before Compiling
-- Lazarus Options, Project Options, Miscellaneous: Check "Main unit is Pascal source", others are personal preference.
-- Lazarus Options, Compiler Options, Paths: set the Lazarus project path to your Indy10 install
-- Set the same path for both the "Other Unit Files" and "Include Files"
-- Example: E:\Indy10\Core;E:\Indy10\Protocols;E:\Indy10\Security;E:\Indy10\System
-
+- Read the Indy10 install doc how to use indylaz_runtime.lpk, or manually config the paths
 
 ## Compile and Verify
 - Compile and resolve any issues

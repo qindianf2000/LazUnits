@@ -2,7 +2,7 @@
 
 # Install Indy 10 on Lazarus
 
-My docs and demos **do not** include the use of the Indy VCL components in a form, but they do explain how to use Indy as non-visual components in the source code.
+My docs and demos **do not** include the use of the Indy design-time components in a form, but they do explain how to use Indy run-time components in-code.
 
 Download Links are valid as of 03.07.2019
 
@@ -46,7 +46,7 @@ Download Links are valid as of 03.07.2019
 ## Convert from Delphi to Lazarus
 - Download Delphi Demos: https://github.com/tinydew4/indy-project-demos
 - See my doc "Convert Indy10 Delphi to Lazarus"
-- Explains how to remove the visual VCL components from the Delphi form, then insert in the source code and use as non-visual objects.
+- Explains how to remove the design-time components from the Delphi form, then insert in the source code and use as run-time components
 
 ## OpenSSL	
 
