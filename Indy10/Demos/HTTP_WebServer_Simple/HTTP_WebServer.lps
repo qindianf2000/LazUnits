@@ -57,8 +57,6 @@
             <Filename Value="server"/>
           </Target>
           <SearchPaths>
-            <IncludeFiles Value="E:\Indy10\Core\;E:\Indy10\Protocols\;E:\Indy10\Security\;E:\Indy10\System\;$(ProjOutDir)"/>
-            <OtherUnitFiles Value="E:\Indy10\Core\;E:\Indy10\Protocols\;E:\Indy10\Security\;E:\Indy10\System\"/>
             <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <CodeGeneration>

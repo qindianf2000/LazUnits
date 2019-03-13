@@ -191,10 +191,13 @@
         <FormatVersion Value="1"/>
       </local>
     </RunParams>
-    <RequiredPackages Count="1">
+    <RequiredPackages Count="2">
       <Item1>
-        <PackageName Value="LCL"/>
+        <PackageName Value="indylaz_runtime"/>
       </Item1>
+      <Item2>
+        <PackageName Value="LCL"/>
+      </Item2>
     </RequiredPackages>
     <Units Count="11">
       <Unit0>
@@ -253,8 +256,7 @@
       <Filename Value="client"/>
     </Target>
     <SearchPaths>
-      <IncludeFiles Value="E:\Indy10\Core\;E:\Indy10\Protocols\;E:\Indy10\Security\;E:\Indy10\System\;$(ProjOutDir)"/>
-      <OtherUnitFiles Value="E:\Indy10\Core\;E:\Indy10\Protocols\;E:\Indy10\Security\;E:\Indy10\System\"/>
+      <IncludeFiles Value="$(ProjOutDir)"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>
