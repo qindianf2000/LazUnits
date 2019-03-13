@@ -4,13 +4,18 @@
 
 My docs and demos **do not** include the use of the Indy VCL components in a form, but they do explain how to use Indy as non-visual components in the source code.
 
-## Download Links as of 03.07.2019
+Download Links are valid as of 03.07.2019
 
-**Indy10.6.2.5494** and Indy10Demo from https://indy.fulgan.com/ZIP/
+## Easy Option - Install from the Package files
+- Unzip the \Packages\indylaz_runtime.zip, example: C:\lazarus\mypackages\indylaz_runtime
+- From the Lazarus IDE menu: Package, open package file (*.lpk)
+- Select the package file: indylaz_runtime.lpk
+- Choose Add to Project
+- The package will compile with the project, or you can press compile before you add to the project.
+- The Project Inspector will show Required Packages: indylaz_runtime
 
-Delphi Demos (see my doc how to convert): https://github.com/tinydew4/indy-project-demos
-
-## Install
+## Alternate Option - Install from the original source
+- Download **Indy10.6.2.5494** and Indy10Demo from https://indy.fulgan.com/ZIP/
 - Unzip the Indy10 files
 - Optionally, copy the source code folders to one Indy10 root folder
 
@@ -39,6 +44,7 @@ Delphi Demos (see my doc how to convert): https://github.com/tinydew4/indy-proje
 			E:\Indy10\Core;E:\Indy10\Protocols;E:\Indy10\Security;E:\Indy10\System
 
 ## Convert from Delphi to Lazarus
+- Download Delphi Demos: https://github.com/tinydew4/indy-project-demos
 - See my doc "Convert Indy10 Delphi to Lazarus"
 - Explains how to remove the visual VCL components from the Delphi form, then insert in the source code and use as non-visual objects.
 
