@@ -15,25 +15,25 @@ Indy 10 HTTPS uses the same TIdHTTPServer with the IO handler TIdServerIOHandler
 
 ## SSL Version and Ciphers
 
-	Choosing TLSv1.2 will be compatiable with all modern desktop and mobile browsers.
+Choosing TLSv1.2 will be compatiable with all modern desktop and mobile browsers.
 	
-	This is specifically not compatiable with older browsers for improved security.
+This is specifically not compatiable with older browsers for improved security.
 	
 		SSLOptions.SSLVersions := [sslvTLSv1_2];
 	
-	This makes the cipher list easy to configure:
+This makes the cipher list easy to configure:
 	
 		OpenSSL.SSLOptions.CipherList := 'TLSv1.2:!NULL';
 		
-	TLSv1.2 is reasonably secure until future Indy support of TLSv1.3 
+TLSv1.2 is reasonably secure until future Indy support of TLSv1.3 
 
 ## Reference Links as of 04.27.2019
 
-	https://github.com/ssllabs/research/wiki/SSL-and-TLS-Deployment-Best-Practices
+https://github.com/ssllabs/research/wiki/SSL-and-TLS-Deployment-Best-Practices
 	
-	https://www.openssl.org/docs/man1.0.2/man1/ciphers.html
+https://www.openssl.org/docs/man1.0.2/man1/ciphers.html
 	
-	https://www.indyproject.org/documentation/
+https://www.indyproject.org/documentation/
 	
 ## My Config
 
