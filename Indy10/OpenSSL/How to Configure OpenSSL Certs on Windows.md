@@ -1,29 +1,33 @@
 # Configuring the Windows certificate store
 
-In order to be able to use the certificate for the website, the certificates need to be imported into the Windows certificate store.
+Import certificates into the Windows certificate store.
 
-When you open the start menu in Windows 10 and you type "certificates", Windows comes up with two relevant suggestions:
+Windows start menu, search "certificates":
 - Manage computer certificates
 - Manage user certificates
 Both will be needed to install the SSL certificate.
 
 ## Computer certificates
 
-When the context menu for Personal is accessed there is an option "Import" under All Tasks.
-Selecting this item will start a wizard to select and import a certificate.
-In this certificate store both the rootCA.pem and server.pfx certificate need to be imported.
-By importing server.pfx the SSL certificate becomes selectable in IIS.
-Importing rootCA.pem will stop IIS from generating warnings the certificate chain is not complete.
+Personal context menu: All Tasks, Import: rootCA.pem
+Personal context menu: All Tasks, Import: server.pfx
 
-At this point, when there is an HTTPS binding and you would try to visit https://acme-site.dev using Chrome in Windows, you would still see an warning page instead of the website itself. This is because Windows still needs to be told it can trust certificates signed with the self created root certificate.
+rootCA.pem will stop IIS from generating warnings the certificate chain is not complete.
+server.pfx allows the SSL certificate to be selectable in IIS.
+
+At this point, try to visit https://acme-site.dev using Chrome in Windows.
+You will see a warning page instead of the website itself.
+Windows still needs to be told it can trust certificates signed with the self created root certificate.
 
 ## Personal certificates (user certificates)
 
-In order to inform Windows it can trust certificates issued with the self created root certificate, the root certificate should be imported under personal certificates. This application looks the same as the one for managing the computer certificates. The big difference is the location where the root certificate should be imported into: Trusted Root Certification Authorities.
+Personal context menu: All Tasks, Import: rootCA.pem
+Import into: Trusted Root Certification Authorities.
 
-Importing the rootCA.pem certificate in this location will be met with a warning message. It informs that accepting an CA certificate from an unknown origin is dangerous and to make sure the certificate is actually legit.
+You will be met with a warning message that accepting an CA certificate from an unknown origin is dangerous and to make sure the certificate is actually legit - answer Yes.
 
-Since the certificate being added to the certificate store is the self signed certificate this dialog can safely be answered with Yes. With the root certificate added to the list of trusted root certification authorities all the steps are done. Opening https://acme-site.dev will no longer display any warnings, instead Chrome will display a nice "secure" status in the URL bar.
+Opening https://acme-site.dev will no longer display any warnings.
+Instead Chrome will display a nice "secure" status in the URL bar.
 
 ## Other
 
