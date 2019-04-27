@@ -272,8 +272,10 @@
       </Unit13>
       <Unit14>
         <Filename Value="httpswebserver.pas"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="39" Y="3"/>
+        <TopLine Value="95"/>
+        <CursorPos Y="106"/>
         <UsageCount Value="10"/>
         <Loaded Value="True"/>
       </Unit14>
@@ -290,7 +292,7 @@
         <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
+        <TopLine Value="19"/>
         <CursorPos X="39" Y="3"/>
         <UsageCount Value="10"/>
         <Loaded Value="True"/>
