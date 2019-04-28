@@ -57,8 +57,7 @@
       <Filename Value="server"/>
     </Target>
     <SearchPaths>
-      <IncludeFiles Value="E:\Indy10\Core\;E:\Indy10\Protocols\;E:\Indy10\Security\;E:\Indy10\System\;$(ProjOutDir)"/>
-      <OtherUnitFiles Value="E:\Indy10\Core\;E:\Indy10\Protocols\;E:\Indy10\Security\;E:\Indy10\System\"/>
+      <IncludeFiles Value="$(ProjOutDir)"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>
@@ -72,6 +71,7 @@
       <Verbosity>
         <ShowWarn Value="False"/>
       </Verbosity>
+      <CustomOptions Value="-dBorland -dVer150 -dDelphi7 -dCompiler6_Up -dPUREPASCAL"/>
       <ExecuteBefore>
         <Command Value="C:\lazarus\execute_before.bat $Name($TargetFile())"/>
       </ExecuteBefore>

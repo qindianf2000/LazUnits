@@ -1,6 +1,4 @@
-{ Version 1.0 - Author jasc2v8 at yahoo dot com
-This is free and unencumbered software released into the public domain.
-For more information, please refer to http://unlicense.org }
+{DEPENDENCY: indylaz_runtime, see readme.txt}
 
 unit httpwebserver;
 
@@ -41,7 +39,7 @@ type
 const
   GIP='127.0.0.1';    //todo: create properties: Server.IP, .Port, .DocumentRoot
   GPORT='80';
-  GROOT='E:\ROOT\';
+  GROOT='.\HOME';
   GLOG='';
   VERBOSE=false;      //verbose = log client connect/disconnect messages
 

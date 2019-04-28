@@ -1,6 +1,5 @@
-{ Version 1.0 - Author jasc2v8 at yahoo dot com
-This is free and unencumbered software released into the public domain.
-For more information, please refer to http://unlicense.org }
+
+{DEPENDENCY: indylaz_runtime, see readme.txt}
 
 unit httpswebserver;
 
@@ -43,17 +42,17 @@ type
   end;
 
 const
-  GIP='127.0.0.1';    //todo: create properties: Server.IP, .Port, .DocumentRoot
+  GIP='127.0.0.1';
   GPORT='443';
-  GROOT='E:\ROOT\';
+  GROOT='.\HOME';
   GLOG='';
   VERBOSE=false;      //verbose = log client connect/disconnect messages
 
-  GCertFile      = 'server.crt';
-  GKeyFile       = 'server.key';
-  GRootCertFile  = 'rootCA.pem';
+  GCertFile      = 'DEMO_Server.crt.pem';
+  GKeyFile       = 'DEMO_Server.key.pem';
+  GRootCertFile  = 'DEMO_RootCA.crt.pem';
   GPassword      = 'demo';
-  GCipherList    = '';
+  GCipherList    = 'TLSv1.2:!NULL';
 
 implementation
 
@@ -67,17 +66,17 @@ begin
 
   MimeTable:=TIdMimeTable.Create(true); //load from system OS
 
-  if LogFile='' then LogFile:='default.log';
+  if LogFile='' then LogFile:=IncludeTrailingPathDelimiter(GROOT)+'server.log';
 
   Log:=TEventLog.Create(Nil);
   Log.FileName:= LogFile;
-  Log.LogType := ltFile;  //ltSystem;
+  Log.LogType := ltFile;  //optional ltSystem;
   Log.Active  := true;
 
   OpenSSL:=TIdServerIOHandlerSSLOpenSSL.Create;
 
   with OpenSSL do begin
-    SSLOptions.SSLVersions := [sslvSSLv2, sslvSSLv3, sslvTLSv1, sslvTLSv1_1, sslvTLSv1_2];
+    SSLOptions.SSLVersions := [sslvTLSv1_2];
     OnGetPassword := @OpenSSLGetPassword;
   end;
 
@@ -85,11 +84,11 @@ begin
 
   with Server do begin;
     OnStatus        := @ServerStatus;
-    OnConnect       := @ServerConnect; //TODO if disabled will it revert to OnStatus?
+    OnConnect       := @ServerConnect;
     OnDisconnect    := @ServerDisconnect;
     OnException     := @ServerException;
     OnCommandGet    := @ServerCommandGet;
-	Scheduler       := nil; //use default Thread Scheduler
+	  Scheduler       := nil; //use default Thread Scheduler
     MaxConnections  := 10;
     KeepAlive       := True;
     IOHandler       := OpenSSL;

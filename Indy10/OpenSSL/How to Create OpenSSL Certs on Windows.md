@@ -1,32 +1,26 @@
 # Creating OpenSSL Certs on Windows
 
-The following files are used to create a localhost certificate for demo and testing purposes
+Use the makecerts.cmd located in the folder \cert-demo-v3
 
-- createkeys.cmd
-- createkeys.cnf
-- v3.ext
+		makecerts.cmd
 
-## Instructions
+Will generate many files, but these will be used:
 
-- Edit v3.ext and change if necessary
-- Edit createkeys.cnf
-- Execute createkeys.cmd from the command line
+		DEMO_RootCA.crt.pem
+		DEMO_Server.crt.pem
+		DEMO_Server.key.pem
+		DEMO_Server.pfx
 
-The following files will be generated;
+## Import Certs on Windows
 
-- rootCA.pem
-- rootCA.key
-- server.crt
-- server.key
-- server.pfx
+See the document "How to Configure OpenSSL Certs on Windows"
+The easiest method is to open: DEMO_Server.pfx
 
-## Important
-To view the keys, used viewkeys.cmd
+## Copy files to the SSL demos
 
-Read the doc "How to configure OpenSSL Certs on Windows"
+The following are used by the demo projects:
 
-See the source code in the demos how to use the certificates above.
+		DEMO_RootCA.crt.pem
+		DEMO_Server.crt.pem
+		DEMO_Server.key.pem
 
-## Credits
-
-Thanks to Thijs Busser and his blog entry at https://medium.com/@tbusser/creating-a-browser-trusted-self-signed-ssl-certificate-2709ce43fd15

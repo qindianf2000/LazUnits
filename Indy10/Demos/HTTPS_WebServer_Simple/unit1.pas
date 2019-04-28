@@ -1,7 +1,3 @@
-{ Version 1.0 - Author jasc2v8 at yahoo dot com
-This is free and unencumbered software released into the public domain.
-For more information, please refer to http://unlicense.org }
-
 {server icon from http://www.fasticon.com}
 
 unit unit1;
@@ -44,21 +40,17 @@ implementation
 procedure TForm1.btnStartStopClick(Sender: TObject);
 begin
   if MyServer.ServerActive then begin
-    //stop
-    btnStartStop.Caption:='Start Server';
     MyServer.Stop;
     Memo1.Append('Server stopped');
+    btnStartStop.Caption:='Start Server';
   end else begin
-    //start
-    btnStartStop.Caption:=Uppercase('stop server');
-	
     LogFile:=GetCurrentDir + DirectorySeparator +
       ChangeFileExt(ExtractFileName(Application.ExeName),'.log');
-
     MyServer.LogFile:=LogFile;
 
     MyServer.Start;
     Memo1.Append('Server started');
+    btnStartStop.Caption:=Uppercase('stop server');
   end;
 end;
 
