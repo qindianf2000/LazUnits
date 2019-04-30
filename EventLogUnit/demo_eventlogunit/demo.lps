@@ -6,7 +6,7 @@
     <BuildModes Active="Debug"/>
     <Units Count="3">
       <Unit0>
-        <Filename Value="project1.lpr"/>
+        <Filename Value="demo.lpr"/>
         <IsPartOfProject Value="True"/>
         <UsageCount Value="21"/>
       </Unit0>
