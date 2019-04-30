@@ -1,7 +1,6 @@
-
 {DEPENDENCY: indylaz_runtime, see readme.txt}
 
-unit httpswebserver;
+unit httpwebserver;
 
 {$mode objfpc}{$H+}
 
@@ -9,11 +8,9 @@ interface
 
 uses
   SysUtils, Classes, EventLog, LCLIntf,
-  //Indy10.6.2.5494
+  //Indy10.6.2.5494 (Laz Menu: Package, open indylaz_runtime.lpk, Use, Add to Project)
   IdBaseComponent, IdComponent, IdContext,IdSocketHandle, IdGlobal, IdGlobalProtocols,
-  IdCustomHTTPServer, IdHTTPServer,
-  //OpenSSL-1.0.2l-i386-win32
-  IdSSL, IdSSLOpenSSL;
+  IdCustomHTTPServer, IdHTTPServer;
 
 type
 
@@ -24,7 +21,6 @@ type
     MimeTable: TIdMimeTable;
     Server: TIdHTTPServer;
     Log: TEventLog;
-    OpenSSL: TIdServerIOHandlerSSLOpenSSL;
     function GetMimeType(aFile: String): String;
     procedure FreeObjects;
     procedure ServerStatus(ASender: TObject; const AStatus: TIdStatus; const AStatusText: String);
@@ -32,7 +28,6 @@ type
     procedure ServerConnect(AContext: TIdContext);
     procedure ServerDisconnect(AContext: TIdContext);
     procedure ServerCommandGet(AContext: TIdContext; ARequestInfo: TIdHTTPRequestInfo; AResponseInfo: TIdHTTPResponseInfo);
-    procedure OpenSSLGetPassword(var Password: String);
   protected
   public
     property LogFile: string read FLogFile write FLogFile;
@@ -42,17 +37,11 @@ type
   end;
 
 const
-  GIP='127.0.0.1';
-  GPORT='443';
+  GIP='127.0.0.1';    //todo: create properties: Server.IP, .Port, .DocumentRoot
+  GPORT='80';
   GROOT='.\HOME';
   GLOG='';
   VERBOSE=false;      //verbose = log client connect/disconnect messages
-
-  GCertFile      = 'DEMO_Server.crt.pem';
-  GKeyFile       = 'DEMO_Server.key.pem';
-  GRootCertFile  = 'DEMO_RootCA.crt.pem';
-  GPassword      = 'demo';
-  GCipherList    = 'TLSv1.2:!NULL';
 
 implementation
 
@@ -66,19 +55,12 @@ begin
 
   MimeTable:=TIdMimeTable.Create(true); //load from system OS
 
-  if LogFile='' then LogFile:=IncludeTrailingPathDelimiter(GROOT)+'server.log';
+  if LogFile='' then LogFile:='default.log';
 
-  Log:=TEventLog.Create(Nil);
+  Log:=TEventLog.Create(nil);
   Log.FileName:= LogFile;
-  Log.LogType := ltFile;  //optional ltSystem;
+  Log.LogType := ltFile;  //ltSystem;
   Log.Active  := true;
-
-  OpenSSL:=TIdServerIOHandlerSSLOpenSSL.Create;
-
-  with OpenSSL do begin
-    SSLOptions.SSLVersions := [sslvTLSv1_2];
-    OnGetPassword := @OpenSSLGetPassword;
-  end;
 
   Server:=TIdHTTPServer.Create;
 
@@ -88,10 +70,9 @@ begin
     OnDisconnect    := @ServerDisconnect;
     OnException     := @ServerException;
     OnCommandGet    := @ServerCommandGet;
-	  Scheduler       := nil; //use default Thread Scheduler
+    Scheduler       := nil; //use default Thread Scheduler
     MaxConnections  := 10;
     KeepAlive       := True;
-    IOHandler       := OpenSSL;
   end;
 
   Server.Bindings.Clear;
@@ -102,15 +83,8 @@ begin
     Binding.IP := GIP;
     Binding.Port := StrToInt(GPORT);
 
-  with OpenSSL.SSLOptions do begin
-    CertFile      := GCertFile;
-    KeyFile       := GKeyFile;
-    RootCertFile  := GRootCertFile;
-    CipherList    := GCipherList;
-  end;
-
-  Server.Active := true;
-  ServerActive  := Server.Active;
+    Server.Active := true;
+    ServerActive  := Server.Active;
 
     Log.Info('Server Start');
     Log.Info('Bound to: ' + GIP + ' on port ' + GPORT);
@@ -126,7 +100,6 @@ begin
       FreeObjects;
     end;
   end;
-
 end;
 
 procedure THTTPWebServer.Stop;
@@ -176,12 +149,6 @@ begin
   Server.Free;
   MimeTable.Free;
   Log.Free;
-  OpenSSL.Free;
-end;
-
-procedure THTTPWebServer.OpenSSLGetPassword(var Password: String);
-begin
-  Password := GPassword;
 end;
 
 procedure THTTPWebServer.ServerCommandGet(AContext: TIdContext;

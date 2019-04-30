@@ -1,3 +1,4 @@
+
 unit StringExchangeServerUnit1;
 
 {$MODE Delphi}
@@ -21,7 +22,8 @@ unit StringExchangeServerUnit1;
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  SysUtils, Classes, Forms,
+  //Indy10.6.2.5494 (Laz Menu: Package, open indylaz_runtime.lpk, Use, Add to Project)
   Dialogs, StdCtrls, IdContext, IdSync, IdBaseComponent, IdComponent, IdCustomTCPServer,
   IdTCPServer, IdGlobal;
 

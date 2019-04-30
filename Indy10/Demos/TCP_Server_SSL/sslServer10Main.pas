@@ -1,3 +1,4 @@
+
 unit sslServer10Main;
 
 {$MODE Delphi}
@@ -41,9 +42,11 @@ interface
 }
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, IdServerIOHandler, IdSSLOpenSSL, IdBaseComponent,
-  IdComponent, IdTCPServer, StdCtrls, ExtCtrls, Buttons, IdSSL, IdContext;
+  SysUtils, Classes, Forms, Graphics, StdCtrls, ExtCtrls, Buttons,
+  //Indy10.6.2.5494 (Laz Menu: Package, open indylaz_runtime.lpk, Use, Add to Project)
+  IdServerIOHandler, IdBaseComponent, IdComponent, IdTCPServer, IdContext,
+  //OpenSSL-1.0.2l-i386-win32 (libeay32.dll and ssleay32.dll)
+  IdSSL, IdSSLOpenSSL;
 
 const
   maxConnections = 4;
@@ -180,11 +183,8 @@ end; { BTN EXIT CLICK }
 
 procedure TForm1.IdServerIOHandlerSSLOpenSSLGetPassword(var Password: String);
 begin
-
-  Memo1.Append('DEBUG GetPassword');
-
+  //Memo1.Append('DEBUG OpenSSLGetPassword');
   password:= 'aaaa';
-
 end; { ID SERVER IO HANDLER SSL OPEN SSL GET PASSWORD }
 
 {===================================================================================}
@@ -192,19 +192,19 @@ end; { ID SERVER IO HANDLER SSL OPEN SSL GET PASSWORD }
 procedure TForm1.IdTCPServerConnect(AContext: TIdContext);
 begin
 
-  if (AContext.Connection.IOHandler is TIdSSLIOHandlerSocketBase) then
+{  if (AContext.Connection.IOHandler is TIdSSLIOHandlerSocketBase) then
     Memo1.Append('DEBUG AContext.Connection.IOHandler is TIdSSLIOHandlerSocketBase')
   else
     Memo1.Append('DEBUG IdTCPServerConnect ERROR!');
-
+}
 
   { THESE TWO LINES ARE CRITICAL TO MAKING THE IdTCPSERVER WORK WITH SSL! }
   if (AContext.Connection.IOHandler is TIdSSLIOHandlerSocketBase) then
     TIdSSLIOHandlerSocketBase(AContext.Connection.IOHandler).PassThrough:= false;
 
-    Memo1.Append('DEBUG IdTCPServerConnect: PassThrough='+
+{    Memo1.Append('DEBUG IdTCPServerConnect: PassThrough='+
       BoolToStr(TIdSSLIOHandlerSocketBase(AContext.Connection.IOHandler).PassThrough,true));
-
+}
 end; { ID TCP SERVER CONNECT }
 
 {===================================================================================}

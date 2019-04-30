@@ -3,6 +3,7 @@ object StringServerForm: TStringServerForm
   Height = 311
   Top = 0
   Width = 413
+  ActiveControl = CheckBox1
   Caption = 'Very Simple String Exchange Server Indy 10.5.5'
   ClientHeight = 311
   ClientWidth = 413

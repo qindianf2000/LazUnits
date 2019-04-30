@@ -12,6 +12,8 @@ object ClientForm: TClientForm
   Font.Height = -11
   Font.Name = 'Tahoma'
   OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '1.8.4.0'
   Visible = False
   object CheckBoxConnectDisconnet: TCheckBox
     Left = 8

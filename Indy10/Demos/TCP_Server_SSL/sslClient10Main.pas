@@ -1,3 +1,4 @@
+
 unit sslClient10Main;
 
 {$MODE Delphi}
@@ -30,13 +31,13 @@ interface
 
 }
 
-
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls,
-  IdIOHandler, IdIOHandlerSocket, IdSSLOpenSSL, IdBaseComponent,
-  IdComponent, IdTCPConnection, IdTCPClient, Buttons, IdIOHandlerStack,
-  IdSSL, IdGlobal;
+  SysUtils, Classes, Graphics, Forms, StdCtrls, ExtCtrls, Buttons,
+  //Indy10.6.2.5494 (Laz Menu: Package, open indylaz_runtime.lpk, Use, Add to Project)
+  IdIOHandler, IdIOHandlerSocket, IdBaseComponent, IdComponent,
+  IdTCPConnection, IdTCPClient, IdIOHandlerStack, IdGlobal,
+  //OpenSSL-1.0.2l-i386-win32 (libeay32.dll and ssleay32.dll)
+  IdSSL, IdSSLOpenSSL;
 
 type
   TForm1 = class(TForm)

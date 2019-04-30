@@ -4,12 +4,12 @@
     <PathDelim Value="\"/>
     <Version Value="10"/>
     <BuildModes Active="Default"/>
-    <Units Count="9">
+    <Units Count="10">
       <Unit0>
         <Filename Value="sslServer10.lpr"/>
         <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
         <UsageCount Value="20"/>
-        <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="sslServer10Main.pas"/>
@@ -18,9 +18,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="33"/>
-        <CursorPos X="12" Y="45"/>
+        <TopLine Value="34"/>
+        <CursorPos X="67" Y="45"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -60,11 +59,59 @@
         <IsPartOfProject Value="True"/>
         <UsageCount Value="20"/>
       </Unit8>
+      <Unit9>
+        <Filename Value="C:\lazarus\packages\indylaz_runtime\Core\IdServerIOHandler.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="45"/>
+        <CursorPos Y="12"/>
+        <UsageCount Value="10"/>
+      </Unit9>
     </Units>
-    <JumpHistory Count="1">
+    <JumpHistory Count="11" HistoryIndex="10">
       <Position1>
-        <Filename Value="sslServer10.lpr"/>
+        <Filename Value="sslServer10Main.pas"/>
+        <Caret Line="44" Column="38" TopLine="39"/>
       </Position1>
+      <Position2>
+        <Filename Value="sslServer10Main.pas"/>
+        <Caret Line="66" Column="34" TopLine="55"/>
+      </Position2>
+      <Position3>
+        <Filename Value="sslServer10Main.pas"/>
+        <Caret Line="46" Column="3" TopLine="37"/>
+      </Position3>
+      <Position4>
+        <Filename Value="sslServer10Main.pas"/>
+        <Caret Line="2"/>
+      </Position4>
+      <Position5>
+        <Filename Value="sslServer10Main.pas"/>
+        <Caret Line="186" Column="21" TopLine="171"/>
+      </Position5>
+      <Position6>
+        <Filename Value="sslServer10Main.pas"/>
+        <Caret Line="198" Column="2" TopLine="183"/>
+      </Position6>
+      <Position7>
+        <Filename Value="sslServer10Main.pas"/>
+        <Caret Line="206" Column="2" TopLine="186"/>
+      </Position7>
+      <Position8>
+        <Filename Value="sslServer10Main.pas"/>
+        <Caret Line="185" Column="24" TopLine="174"/>
+      </Position8>
+      <Position9>
+        <Filename Value="sslServer10Main.pas"/>
+        <Caret Line="195" Column="24" TopLine="159"/>
+      </Position9>
+      <Position10>
+        <Filename Value="sslServer10Main.pas"/>
+        <Caret Line="45" Column="69" TopLine="34"/>
+      </Position10>
+      <Position11>
+        <Filename Value="sslServer10Main.pas"/>
+        <Caret Line="57" Column="21" TopLine="46"/>
+      </Position11>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>

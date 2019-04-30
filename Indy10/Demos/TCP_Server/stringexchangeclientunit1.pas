@@ -25,8 +25,9 @@ unit StringExchangeClientUnit1;
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient, IdGlobal;
+  SysUtils, Classes, Forms, Dialogs, StdCtrls,
+  //Indy10.6.2.5494 (Laz Menu: Package, open indylaz_runtime.lpk, Use, Add to Project)
+  IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient, IdGlobal;
 
 type
 

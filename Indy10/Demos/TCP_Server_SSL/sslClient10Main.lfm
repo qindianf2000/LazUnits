@@ -3,6 +3,7 @@ object Form1: TForm1
   Height = 428
   Top = 119
   Width = 458
+  ActiveControl = btnConnect
   Caption = 'Sample SSL Client (Indy 10)'
   ClientHeight = 428
   ClientWidth = 458
@@ -11,6 +12,7 @@ object Form1: TForm1
   Font.Height = -12
   Font.Name = 'Arial'
   OnCreate = FormCreate
+  Position = poScreenCenter
   LCLVersion = '1.8.4.0'
   Visible = False
   object Panel1: TPanel
@@ -87,6 +89,7 @@ object Form1: TForm1
       Anchors = [akTop, akLeft, akRight, akBottom]
       OnKeyPress = Edit1KeyPress
       TabOrder = 0
+      TextHint = 'Write Text Here'
     end
   end
   object Panel3: TPanel
