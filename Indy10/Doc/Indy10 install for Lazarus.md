@@ -29,6 +29,10 @@ This is an overview of how to install Indy10 on Lazarus, both design-time and ru
 - Complete the rebuild and restart IDE
 - You will now have many tabs with Indy design-time components
 
+## Fix Memory Leaks
+- There is a known memory leak issue
+- Use the tool Indy10FixMemLeak to resolve the packages on your system
+
 ## OpenSSL	
 
 - The OpenSSL site is: https://www.openssl.org/
