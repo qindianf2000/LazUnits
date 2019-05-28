@@ -2,51 +2,32 @@
 
 # Install Indy 10 on Lazarus
 
-My docs and demos **do not** include the use of the Indy design-time components in a form, but they do explain how to use Indy run-time components in-code.
+This is an overview of how to install Indy10 on Lazarus, both design-time and run-time.
 
-Download Links are valid as of 03.07.2019
+## Use the Online Package Manager (OPM)
+- Install Online Package Manager (http://wiki.lazarus.freepascal.org/Online_Package_Manager)
+- Start OPM (Lazarus menu: Package, Online Package Manager)
+- Filter by 'indy'
+- Select the package file: indy10
+- Expand to verify version 10.6.2.5494 or later
 
-## Easy Option - Install from the Package files
-- Unzip the \Packages\indylaz_runtime.zip, example: C:\lazarus\mypackages\indylaz_runtime
-- From the Lazarus IDE menu: Package, open package file (*.lpk)
-- Select the package file: indylaz_runtime.lpk
-- Choose Add to Project
-- The package will compile with the project, or you can press compile before you add to the project.
-- The Project Inspector will show Required Packages: indylaz_runtime
+## Run-time
+- Continue from Use OPM above...
+- Press Download to download indy10.zip
+- Unzip to your packages folder e.g. C:\lazarus\packages\indy10
+- Open your project
+- Lazarus menu: Package, Open Package File (*.lpk)
+- Choose the indy10 package e.g. C:\lazarus\packages\indy10\indylaz.lpk
+- The Package Viewer will open the package
+- Packager Viewer menu: Use, Add to Project (no need to compile yet)
+- The Project Inspector will show Required Packages: indylaz
+- Compile your project and it will resolve the Indy unit include statements
 
-## Alternate Option - Install from the original source
-- Download **Indy10.6.2.5494** and Indy10Demo from https://indy.fulgan.com/ZIP/
-- Unzip the Indy10 files
-- Optionally, copy the source code folders to one Indy10 root folder
-
-			E:\Indy10\Core
-			E:\Indy10\Protocols
-			E:\Indy10\Security
-			E:\Indy10\System
-			
-- Optionally, prevent memory leaks by editing the IdCompilerDefines.inc files in several folders: Core, Protocols, System
-	- Change From:
-	
-			{.$DEFINE FREE_ON_FINAL}
-			{$UNDEF FREE_ON_FINAL}
-		
-	- Change To:
-	
-			{$DEFINE FREE_ON_FINAL}
-			{.$UNDEF FREE_ON_FINAL}
-		
-- Add the paths to your IDE.
-	- Lazarus Options, Project Options, Miscellaneous: Check "Main unit is Pascal source", others are personal preference.
-	- Lazarus Options, Compiler Options, Paths: set the Lazarus project path to your Indy10 install
-	- Add the same path for both the "Other Unit Files" and "Include Files"
-	- Example:
-	
-			E:\Indy10\Core;E:\Indy10\Protocols;E:\Indy10\Security;E:\Indy10\System
-
-## Convert from Delphi to Lazarus
-- Download Delphi Demos: https://github.com/tinydew4/indy-project-demos
-- See my doc "Convert Indy10 Delphi to Lazarus"
-- Explains how to remove the design-time components from the Delphi form, then insert in the source code and use as run-time components
+## Design-time
+- Continue from Use OPM above...
+- Press Install to install indy10
+- Complete the rebuild and restart IDE
+- You will now have many tabs with Indy design-time components
 
 ## OpenSSL	
 
