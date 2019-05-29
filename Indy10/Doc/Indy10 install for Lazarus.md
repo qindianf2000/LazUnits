@@ -2,36 +2,59 @@
 
 # Install Indy 10 on Lazarus
 
-This is an overview of how to install Indy10 on Lazarus, both design-time and run-time.
+My docs and demos **do not** include the use of the Indy VCL components in a form ("design time"), but they do explain how to use Indy as non-visual components in the source code ("run time").
 
-## Use the Online Package Manager (OPM)
-- Install Online Package Manager (http://wiki.lazarus.freepascal.org/Online_Package_Manager)
-- Start OPM (Lazarus menu: Package, Online Package Manager)
-- Filter by 'indy'
-- Select the package file: indy10
-- Expand to verify version 10.6.2.5494 or later
-
-## Run-time
-- Continue from Use OPM above...
-- Press Download to download indy10.zip
-- Unzip to your packages folder e.g. C:\lazarus\packages\indy10
+## Use My Run Time Package
+- Download \Packages\indylaz_runtime.zip
+- Unzip to your packages folder e.g. C:\lazarus\packages\indylaz_runtime
 - Open your project
 - Lazarus menu: Package, Open Package File (*.lpk)
-- Choose the indy10 package e.g. C:\lazarus\packages\indy10\indylaz.lpk
+- Select the package file e.g. C:\lazarus\packages\indylaz_runtime\indylaz_runtime.lpk
 - The Package Viewer will open the package
 - Packager Viewer menu: Use, Add to Project (no need to compile yet)
-- The Project Inspector will show Required Packages: indylaz
+- The Project Inspector will show Required Packages: indylaz_runtime
 - Compile your project and it will resolve the Indy unit include statements
+- Note that my run time package includes the memory leak fixes
 
-## Design-time
-- Continue from Use OPM above...
-- Press Install to install indy10
-- Complete the rebuild and restart IDE
-- You will now have many tabs with Indy design-time components
+## Manual Installation
 
-## Fix Memory Leaks
-- There is a known memory leak issue
-- Use the tool Indy10FixMemLeak to resolve the packages on your system
+Download links valide as of 03.07.2019
+
+**Indy10.6.2.5494** and Indy10Demo from https://indy.fulgan.com/ZIP/
+
+Delphi Demos (see my doc how to convert): https://github.com/tinydew4/indy-project-demos
+
+### Manual Config
+- Unzip the Indy10 files
+- Optionally, copy the source code folders to one Indy10 root folder
+
+			E:\Indy10\Core
+			E:\Indy10\Protocols
+			E:\Indy10\Security
+			E:\Indy10\System
+			
+- Optionally, prevent memory leaks by editing the IdCompilerDefines.inc files in several folders: Core, Protocols, SuperCore, System
+	- Change From:
+	
+			{.$DEFINE FREE_ON_FINAL}
+			{$UNDEF FREE_ON_FINAL}
+		
+	- Change To:
+	
+			{$DEFINE FREE_ON_FINAL}
+			{.$UNDEF FREE_ON_FINAL}
+		
+- Add the paths to your IDE.
+	- Lazarus Options, Project Options, Miscellaneous: Check "Main unit is Pascal source", others are personal preference.
+	- Lazarus Options, Compiler Options, Paths: set the Lazarus project path to your Indy10 install
+	- Add the same path for both the "Other Unit Files" and "Include Files"
+	- Example:
+	
+			E:\Indy10\Core;E:\Indy10\Protocols;E:\Indy10\Security;E:\Indy10\System
+
+## Convert from Delphi to Lazarus
+- See my doc "Convert Indy10 Delphi to Lazarus"
+- Explains how to remove the visual VCL components from the Delphi form, and use as non-visual objects ("run time").
 
 ## OpenSSL	
 
